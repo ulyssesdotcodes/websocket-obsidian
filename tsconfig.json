@@ -5,7 +5,7 @@
     "inlineSources": true,
     "module": "ESNext",
     "target": "es6",
-    "allowJs": true,
+    "allowJs": false,
     "noImplicitAny": true,
     "moduleResolution": "node",
     "importHelpers": true,
@@ -14,7 +14,7 @@
       "es5",
       "scripthost",
       "es2015"
-    ]
+    ],
   },
   "include": [
     "**/*.ts"
