@@ -1,19 +1,17 @@
 import { App, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 
-interface MyPluginSettings {
-	mySetting: string;
+interface NodeREDPluginSettings {
+	nodeRedUrl: string;
 }
 
-const DEFAULT_SETTINGS: MyPluginSettings = {
-	mySetting: 'default'
+const DEFAULT_SETTINGS: NodeREDPluginSettings = {
+	nodeRedUrl: ''
 }
 
-export default class MyPlugin extends Plugin {
-	settings: MyPluginSettings;
+export default class NodeREDPlugin extends Plugin {
+	settings: NodeREDPluginSettings;
 
 	async onload() {
-		console.log('loading plugin');
-
 		await this.loadSettings();
 
 		this.addRibbonIcon('dice', 'Sample Plugin', () => {
@@ -83,9 +81,9 @@ class SampleModal extends Modal {
 }
 
 class SampleSettingTab extends PluginSettingTab {
-	plugin: MyPlugin;
+	plugin: NodeREDPlugin;
 
-	constructor(app: App, plugin: MyPlugin) {
+	constructor(app: App, plugin: NodeREDPlugin) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
@@ -105,7 +103,7 @@ class SampleSettingTab extends PluginSettingTab {
 				.setValue('')
 				.onChange(async (value) => {
 					console.log('Secret: ' + value);
-					this.plugin.settings.mySetting = value;
+					this.plugin.settings.nodeRedUrl = value;
 					await this.plugin.saveSettings();
 				}));
 	}
